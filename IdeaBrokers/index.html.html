@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Idea Brokers</title>
+
+<style>
+body {
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#0b1c2c;
+  color:white;
+}
+
+/* NAVBAR */
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  padding:18px 40px;
+  background:#0b1c2c;
+}
+
+.logo {
+  font-size:20px;
+  font-weight:bold;
+  color:#00d4ff;
+}
+
+.nav-buttons button {
+  margin-left:10px;
+  padding:8px 15px;
+  border:none;
+  border-radius:6px;
+  background:#00d4ff;
+  color:black;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(135deg,#0b1c2c,#112f45);
+}
+
+.hero h1 {
+  font-size:42px;
+  background:linear-gradient(90deg,#00d4ff,#2ecc71);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+/* IDEAS */
+.container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  padding:40px;
+}
+
+.card {
+  background:#112f45;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.price {
+  color:#2ecc71;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+button {
+  margin-top:10px;
+  padding:10px;
+  width:100%;
+  background:linear-gradient(90deg,#00d4ff,#2ecc71);
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">Idea Brokers 🚀</div>
+
+  <div class="nav-buttons">
+    <button onclick="goLogin()">Login</button>
+    <button onclick="goUpload()">Upload Idea</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>AI-Powered Idea Marketplace</h1>
+  <p>Discover and unlock startup ideas with AI-based valuation</p>
+</div>
+
+<!-- IDEAS -->
+<div id="ideas" class="container"></div>
+
+<script>
+
+// IDEAS LIST
+let ideas = [
+"AI Interview Platform","Eco Packaging","Food Subscription App",
+"Freelancer Marketplace","Gaming Tournament","Doctor App",
+"Marketing Agency","Custom Gift Store","Fitness App","Local Delivery"
+];
+
+// AI PRICE FUNCTION
+function getAIPrice(){
+  return 5000 + Math.floor(Math.random() * 5000);
+}
+
+let container = document.getElementById("ideas");
+
+// SHOW IDEAS
+ideas.forEach(i=>{
+  let price = getAIPrice();
+
+  container.innerHTML += `
+  <div class="card">
+    <h3>${i}</h3>
+    <p>AI Verified Idea ✅</p>
+    <div class="price">₹${price}</div>
+    <button onclick="openIdea('${i}', ${price})">Explore</button>
+  </div>
+  `;
+});
+
+// SHOW UPLOADED IDEA
+let newIdea = localStorage.getItem("newIdea");
+let newDesc = localStorage.getItem("newDesc");
+
+if(newIdea){
+  let price = getAIPrice();
+
+  container.innerHTML += `
+  <div class="card">
+    <h3>${newIdea}</h3>
+    <p>${newDesc}</p>
+    <div class="price">₹${price}</div>
+    <button onclick="openIdea('${newIdea}', ${price})">Explore</button>
+  </div>
+  `;
+}
+
+// OPEN IDEA
+function openIdea(name, price){
+  localStorage.setItem("idea", name);
+  localStorage.setItem("price", price);
+  window.location.href="idea.html";
+}
+
+// NAVIGATION
+function goLogin(){
+  window.location.href="login.html";
+}
+
+function goUpload(){
+  window.location.href="upload.html";
+}
+
+</script>
+
+</body>
+</html>

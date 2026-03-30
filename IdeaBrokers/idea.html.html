@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Idea Preview</title>
+
+<style>
+body {
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#0b1c2c;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+/* BOX */
+.box {
+  background:#112f45;
+  padding:40px;
+  border-radius:15px;
+  width:350px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* TITLE */
+h2 {
+  margin-bottom:10px;
+  color:#00d4ff;
+}
+
+/* PRICE */
+.price {
+  margin:20px 0;
+  font-size:20px;
+  font-weight:bold;
+  color:#2ecc71;
+}
+
+/* TAG */
+.tag {
+  background:#00d4ff;
+  color:black;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+}
+
+/* BUTTON */
+button {
+  margin-top:15px;
+  padding:12px;
+  width:100%;
+  background:linear-gradient(90deg,#00d4ff,#2ecc71);
+  border:none;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<span class="tag">AI Verified ✅</span>
+
+<h2 id="name"></h2>
+
+<p>Startup idea preview available. Unlock to view full business plan.</p>
+
+<div class="price">
+₹ <span id="price"></span>
+</div>
+
+<button onclick="goPayment()">Unlock Full Idea</button>
+
+</div>
+
+<script>
+function gopayment(){
+  window.location.href = "payment.html";
+}
+</script>
+
+</body>
+</html>

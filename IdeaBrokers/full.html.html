@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Full Idea</title>
+
+<style>
+body {background:#0b1c2c;color:white;text-align:center;padding:50px;}
+
+.box {
+  background:#112f45;
+  padding:30px;
+  border-radius:12px;
+  width:400px;
+  margin:auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1 id="name"></h1>
+<p id="full"></p>
+</div>
+
+<script>
+document.getElementById("name").innerText = localStorage.getItem("idea");
+
+document.getElementById("full").innerHTML = `
+Full Business Plan <br><br>
+AI Estimated Price: ₹${localStorage.getItem("price")} <br><br>
+Includes execution strategy, target market, and revenue model.
+`;
+</script>
+</body>
+</html>

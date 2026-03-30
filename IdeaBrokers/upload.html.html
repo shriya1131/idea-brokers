@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload Idea</title>
+<style>
+body {background:#0b1c2c;color:white;text-align:center;padding:50px;}
+input,textarea,button {width:300px;margin:10px;padding:10px;}
+button {background:#00d4ff;border:none;}
+</style>
+</head>
+
+<body>
+
+<h2>Upload Your Idea</h2>
+
+<input id="title" placeholder="Idea Title"><br>
+<textarea id="desc" placeholder="Idea Description"></textarea><br>
+
+<button onclick="upload()">Submit</button>
+
+<script>
+function upload(){
+let title = document.getElementById("title").value;
+let desc = document.getElementById("desc").value;
+
+localStorage.setItem("newIdea", title);
+localStorage.setItem("newDesc", desc);
+
+alert("Idea Uploaded!");
+window.location.href="index.html";
+}
+</script>
+
+</body>
+</html>
